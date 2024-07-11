@@ -1,56 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Login from "./components/Login";
+import Akun from "./pages/Akun";
+import AddAkun from "./pages/AddAkun";
+import EditAkun from "./pages/EditAkun";
+import Mahasiswa from "./pages/Mahasiswa";
+import AddMahasiswa from "./pages/AddMahasiswa";
+import EditMahasiswa from "./pages/EditMahasiswa"
+import Pejabat from "./pages/Pejabat";
+import AddPejabat from "./pages/AddPejabat";
+import EditPejabat from "./pages/EditPejabat";
+import Indikator from "./pages/Indikator";
+import HeaderPenilaian from "./pages/HeaderPenilaian";
+import AddHeaderPenilaian from "./pages/AddHeaderPenilaian";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/akun" element={<Akun />} />
+          <Route path="/akun/add" element={<AddAkun />} />
+          <Route path="/akun/edit/:id" element={<EditAkun />} />
+          <Route path="/mahasiswa" element={<Mahasiswa />} />
+          <Route path="/mahasiswa/add" element={<AddMahasiswa />} />
+          <Route path="/mahasiswa/edit/:id" element={<EditMahasiswa />} />
+          <Route path="/pejabat" element={<Pejabat />} />
+          <Route path="/pejabat/add" element={<AddPejabat />} />
+          <Route path="/pejabat/edit/:id" element={<EditPejabat />} />
+          <Route path="/indikator" element={<Indikator />} />
+          <Route path="/headerpenilaian" element={<HeaderPenilaian />} />
+          <Route path="/headerpenilaian/add" element={<AddHeaderPenilaian />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
