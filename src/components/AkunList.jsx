@@ -21,37 +21,48 @@ function AkunList() {
   };
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold">Akun</h1>
+    <div className="max-w-7xl mx-auto p-6 bg-white rounded-lg shadow-md">
+      <h1 className="text-3xl font-bold mb-6">Akun</h1>
       <h2 className="text-2xl mb-4 font-semibold">List of Akun</h2>
-      <Link to="/akun/add" className="bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded-l">Add New</Link>
-      <table className="table-auto w-full">
+      <Link
+        to="/akun/add"
+        className="mb-4 inline-block bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded"
+      >
+        Add New
+      </Link>
+      <table className="table-auto w-full border-collapse border border-gray-300">
         <thead>
-          <tr>
-            <th className="px-4 py-2 text-center">No</th>
-            <th className="px-4 py-2">Name</th>
-            <th className="px-4 py-2">Email</th>
-            <th className="px-4 py-2">Role</th>
-            <th className="px-4 py-2">Action</th>
+          <tr className="bg-gray-200">
+            <th className="px-4 py-2 text-center border border-gray-300">No</th>
+            <th className="px-4 py-2 border border-gray-300">Name</th>
+            <th className="px-4 py-2 border border-gray-300">Email</th>
+            <th className="px-4 py-2 border border-gray-300">Role</th>
+            <th className="px-4 py-2 border border-gray-300">Action</th>
           </tr>
         </thead>
         <tbody>
           {akun.map((akun, index) => (
-            <tr key={akun.akun_id}>
+            <tr key={akun.akun_id} className="hover:bg-gray-100">
               <td className="border px-4 py-2 text-center">{index + 1}</td>
-              <td className="border px-4 py-2 text-center">{akun.akun_username}</td>
-              <td className="border px-4 py-2 text-center">{akun.akun_email}</td>
-              <td className="border px-4 py-2 text-center">{akun.level.akun_level_nama}</td>
-              <td className="border px-4 py-2 text-center flex justify-center">
+              <td className="border px-4 py-2 text-center">
+                {akun.akun_username}
+              </td>
+              <td className="border px-4 py-2 text-center">
+                {akun.akun_email}
+              </td>
+              <td className="border px-4 py-2 text-center">
+                {akun.level.akun_level_nama}
+              </td>
+              <td className="border px-4 py-2 text-center flex justify-center space-x-2">
                 <Link
                   to={`/akun/edit/${akun.akun_id}`}
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-l"
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 >
                   Edit
                 </Link>
                 <button
                   onClick={() => deleteAkun(akun.akun_id)}
-                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-l"
+                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
                 >
                   Delete
                 </button>

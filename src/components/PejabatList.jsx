@@ -21,39 +21,52 @@ function PejabatList() {
   };
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold">Pejabat</h1>
+    <div className="max-w-7xl mx-auto p-6 bg-white rounded-lg shadow-md">
+      <h1 className="text-3xl font-bold mb-6">Pejabat</h1>
       <h2 className="text-2xl mb-4 font-semibold">List of Pejabat</h2>
-      <Link to="/akun/add" className="bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded-l">Add New</Link>
-      <table className="table-auto w-full">
-        <thead>
+      <Link
+        to="/pejabat/add"
+        className="mb-4 inline-block bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded"
+      >
+        Add New
+      </Link>
+      <table className="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
+        <thead className="bg-gray-200">
           <tr>
-            <th className="px-4 py-2 text-center">No</th>
-            <th className="px-4 py-2">NIP</th>
-            <th className="px-4 py-2">Nama</th>
-            <th className="px-4 py-2">Jabatan</th>
-            <th className="px-4 py-2">Peleton</th>
-            <th className="px-4 py-2">Action</th>
+            <th className="px-4 py-2 text-center border border-gray-300">No</th>
+            <th className="px-4 py-2 border border-gray-300">NIP</th>
+            <th className="px-4 py-2 border border-gray-300">Nama</th>
+            <th className="px-4 py-2 border border-gray-300">Jabatan</th>
+            <th className="px-4 py-2 border border-gray-300">Peleton</th>
+            <th className="px-4 py-2 border border-gray-300">Action</th>
           </tr>
         </thead>
         <tbody>
           {pejabat.map((pejabat, index) => (
-            <tr key={pejabat.pejabat_id}>
+            <tr key={pejabat.pejabat_id} className="hover:bg-gray-100">
               <td className="border px-4 py-2 text-center">{index + 1}</td>
-              <td className="border px-4 py-2 text-center">{pejabat.pejabat_nip}</td>
-              <td className="border px-4 py-2 text-center">{pejabat.pejabat_nama}</td>
-              <td className="border px-4 py-2 text-center">{pejabat.pejabat_jabatan}</td>
-              <td className="border px-4 py-2 text-center">{pejabat.peleton.peleton_nama}</td>
-              <td className="border px-4 py-2 text-center flex justify-center">
+              <td className="border px-4 py-2 text-center">
+                {pejabat.pejabat_nip}
+              </td>
+              <td className="border px-4 py-2 text-center">
+                {pejabat.pejabat_nama}
+              </td>
+              <td className="border px-4 py-2 text-center">
+                {pejabat.pejabat_jabatan}
+              </td>
+              <td className="border px-4 py-2 text-center">
+                {pejabat.peleton.peleton_nama}
+              </td>
+              <td className="border px-4 py-2 text-center flex justify-center space-x-2">
                 <Link
                   to={`/pejabat/edit/${pejabat.pejabat_id}`}
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-l"
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 >
                   Edit
                 </Link>
                 <button
                   onClick={() => deletePejabat(pejabat.pejabat_id)}
-                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-l"
+                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
                 >
                   Delete
                 </button>

@@ -32,9 +32,11 @@ const FormAddAkun = () => {
       formData.akun_username === ""
     ) {
       setMessage("Please fill all fields");
+      return;
     }
     if (formData.akun_password !== formData.akun_confPassword) {
       setMessage("Password and Confirm Password must be same");
+      return;
     } else {
       try {
         const response = await axios.post(`${base_url}/api/akun`, formData);

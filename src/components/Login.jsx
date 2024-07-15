@@ -10,6 +10,7 @@ const Login = () => {
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
   const { akun, isError, isSuccess, isLoading, message } = useSelector(
     (state) => state.auth
   );
@@ -31,6 +32,11 @@ const Login = () => {
 
   const Auth = (e) => {
     e.preventDefault();
+    if (!formData.akun_email || !formData.akun_password) {
+      setErrorMessage("Email dan Password harus diisi.");
+      return;
+    }
+    setErrorMessage("");
     dispatch(LoginAkun(formData));
   };
   return (
@@ -41,9 +47,14 @@ const Login = () => {
             <div className="w-full md:w-1/2 xl:w-1/4 p-4">
               <form
                 onSubmit={Auth}
-                className="bg-white shadow-md rounded px-8 pt- pb-8 m-4"
+                className="bg-white shadow-md  rounded px-8 pt- pb-8 m-4"
               >
-                {isError && <p className="text-center">{message}</p>}
+                {isError && (
+                  <p className="text-center text-red-500">{message}</p>
+                )}
+                {errorMessage && (
+                  <p className="text-center text-red-500">{errorMessage}</p>
+                )}
                 <h1 className="text-3xl font-bold mb-4">Sign In</h1>
                 <div className="mb-4">
                   <label className="block text-black text-sm font-bold mb-2">

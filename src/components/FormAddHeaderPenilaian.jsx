@@ -111,6 +111,7 @@ function FormAddHeaderPenilaian() {
     }
     try {
         const response = await axios.post(`${base_url}/api/headerpenilaian`, formattedData);
+        navigate("/headerpenilaian")
     } catch (error) {
         setMessage(error.response.data.message);
     }

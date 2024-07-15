@@ -14,6 +14,10 @@ import EditPejabat from "./pages/EditPejabat";
 import Indikator from "./pages/Indikator";
 import HeaderPenilaian from "./pages/HeaderPenilaian";
 import AddHeaderPenilaian from "./pages/AddHeaderPenilaian";
+import Me from "./pages/Me";
+import Penilaian from "./pages/Penilaian";
+import EditPenilaian from "./pages/EditPenilaian";
+import Maut from "./pages/Maut";
 
 function App() {
   return (
@@ -34,6 +38,10 @@ function App() {
           <Route path="/indikator" element={<Indikator />} />
           <Route path="/headerpenilaian" element={<HeaderPenilaian />} />
           <Route path="/headerpenilaian/add" element={<AddHeaderPenilaian />} />
+          <Route path="/penilaian" element={<Penilaian />} />
+          <Route path="/penilaian/edit/:id" element={<EditPenilaian />} />
+          <Route path="/me" element={<Me />} />
+          <Route path="/maut" element={<Maut />} />
         </Routes>
       </BrowserRouter>
     </div>

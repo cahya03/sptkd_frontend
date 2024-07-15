@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { IoHome, IoDocument, IoLogOut, IoPerson } from "react-icons/io5";
+import { IoHome, IoDocument, IoLogOut, IoPerson, IoInformationCircleOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { LogOut, reset } from "../features/authSlice";
 
@@ -24,17 +24,26 @@ const Sidebar = () => {
             to={"/dashboard"}
             className="flex items-center hover:bg-gray-200 mb-2"
           >
-            <IoHome className="mr-2 mb" />
+            <IoHome className="mr-2" />
             Dashboard
           </NavLink>
         </li>
         <li>
           <NavLink
             to={"/headerpenilaian"}
-            className="flex items-center hover:bg-gray-200"
+            className="flex items-center hover:bg-gray-200 mb-2"
           >
             <IoDocument className="mr-2" />
             Header Penilaian
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to={"/indikator"}
+            className="flex items-center hover:bg-gray-200"
+          >
+            <IoInformationCircleOutline  className="mr-2" />
+            Indikator Penilaian
           </NavLink>
         </li>
       </ul>
